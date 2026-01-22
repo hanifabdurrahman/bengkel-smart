@@ -1,0 +1,67 @@
+:root {
+    --input-bg-light: #f3f4f6;
+    --input-bg-focus: #ffffff;
+    --input-border-focus: #4f46e5;
+    --input-shadow-focus: rgba(79, 70, 229, 0.15);
+}
+
+.modern-search-wrapper {
+    background-color: var(--input-bg-light);
+    border: 1px solid transparent;
+    border-radius: 50rem;
+    padding: 0.35rem 1rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+    transition: all 0.25s ease;
+}
+
+.modern-search-wrapper:focus-within {
+    background-color: var(--input-bg-focus);
+    border-color: var(--input-border-focus);
+    box-shadow: 0 0 0 4px var(--input-shadow-focus);
+}
+
+.modern-search-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 0.95rem;
+    color: #374151;
+    margin-left: 0.5rem;
+}
+
+.card-modern {
+    border-radius: 1.25rem;
+    background: #fff;
+    border: none;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.loading-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 40;
+}
+
+.fade-in {
+    animation: fadeIn 0.35s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

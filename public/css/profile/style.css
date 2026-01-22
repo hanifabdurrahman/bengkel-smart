@@ -1,0 +1,32 @@
+.form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+
+[data-bs-theme="dark"] .form-label {
+    color: #d1d5db;
+}
+
+.section-header {
+    border-left: 4px solid #4f46e5;
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 4px solid #e0e7ff;
+}
+
+/* Tambahan: Hover effect pada label upload */
+.upload-label {
+    transition: all 0.2s;
+}
+
+.upload-label:hover {
+    background-color: #f3f4f6 !important;
+    transform: scale(1.05);
+}

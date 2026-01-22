@@ -1,0 +1,53 @@
+.premium-blur {
+    filter: blur(5px);
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.6;
+}
+
+.premium-lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    backdrop-filter: blur(1px);
+}
+
+/* --- Button & Filter Styles --- */
+.filter-section .form-control {
+    height: 42px;
+    /* Consistent height for inputs */
+}
+
+.filter-buttons .btn {
+    height: 42px;
+    /* Match button height to inputs */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    .card {
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+    }
+
+    .premium-blur {
+        filter: none;
+    }
+}

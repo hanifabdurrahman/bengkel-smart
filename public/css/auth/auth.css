@@ -1,0 +1,419 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* --- 1. SETUP VARIABLE --- */
+:root {
+    --bg-body: #1e1e24;
+    --bg-panel: #2b2b36;
+    --bg-overlay: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+    --text-main: #ffffff;
+    --text-muted: #d1d5db;
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+
+    --input-border: #4b4b5a;
+    --input-icon: #9ca3af;
+
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    --radius: 12px;
+}
+
+body.light-mode {
+    --bg-body: #f3f4f6;
+    --bg-panel: #ffffff;
+    --bg-overlay: linear-gradient(135deg, #3b82f6, #2563eb);
+    --text-main: #111827;
+    --text-muted: #4b5563;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --input-border: #d1d5db;
+    --input-icon: #6b7280;
+    --shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-body);
+    transition: background 0.4s ease;
+    overflow: hidden;
+}
+
+/* --- BUTTON & THEME TOGGLE --- */
+.btn-home,
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    z-index: 100;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: 0.3s;
+}
+
+.btn-home {
+    left: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.btn-home:hover {
+    opacity: 1;
+    color: var(--primary);
+}
+
+.theme-toggle {
+    right: 30px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgba(128, 128, 128, 0.15);
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* --- CONTAINER (TINGGI DISESUAIKAN: 600px) --- */
+.container {
+    position: relative;
+    width: 700px;
+    /* UPDATE: Tinggi 600px cukup untuk form register tanpa memotong link */
+    height: 600px;
+    background: var(--bg-panel);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+}
+
+/* --- FORM SECTION --- */
+.form-box {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+    transition: all 0.6s ease-in-out;
+    z-index: 1;
+    background: var(--bg-panel);
+}
+
+.form-header h2 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 2px;
+    font-weight: 700;
+}
+
+.form-header p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+    /* Margin dikurangi */
+    font-weight: 400;
+}
+
+/* --- PLAN BADGE (Compact) --- */
+.plan-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+/* --- INPUT FIELDS (Compact & Tight) --- */
+.input-box {
+    position: relative;
+    width: 100%;
+    /* UPDATE: Margin antar input 12px agar muat semua */
+    margin-top: 12px;
+    height: 40px;
+    /* Tinggi input standar compact */
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--input-border);
+    color: var(--text-main);
+    font-size: 13px;
+    font-weight: 500;
+    padding-right: 25px;
+    transition: 0.3s;
+}
+
+/* Autofill Fix */
+.input-box input:-webkit-autofill,
+.input-box input:-webkit-autofill:hover,
+.input-box input:-webkit-autofill:focus,
+.input-box input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--bg-panel) inset !important;
+    -webkit-text-fill-color: var(--text-main) !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 13px;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.input-box i {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    color: var(--input-icon);
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+/* Focus State */
+.input-box input:focus,
+.input-box input:valid {
+    border-bottom-color: var(--primary);
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -5px;
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.input-box input:focus ~ i,
+.input-box input:valid ~ i {
+    color: var(--primary);
+}
+
+.alert-error {
+    display: block;
+    color: #ef4444;
+    font-size: 10px;
+    margin-top: 1px;
+    min-height: 14px;
+    font-weight: 500;
+}
+
+/* --- BUTTONS --- */
+.btn {
+    width: 100%;
+    height: 38px;
+    background: var(--primary);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #ffffff !important;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 15px;
+    /* Jarak tombol ke input terakhir */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* --- LINKS (Fixed Position) --- */
+.regi-link {
+    text-align: center;
+    margin-top: 15px;
+    /* Jarak aman dari tombol */
+    font-size: 11px;
+    color: var(--text-main);
+    font-weight: 400;
+    position: relative;
+    z-index: 10;
+    /* Pastikan di atas layer lain */
+}
+
+.regi-link a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 3px;
+}
+
+.regi-link a:hover {
+    text-decoration: underline;
+}
+
+/* --- OVERLAY ANIMATION --- */
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.overlay {
+    background: var(--bg-overlay);
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.info-content {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.info-content h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.info-content p {
+    font-size: 0.85rem;
+    color: #e0e7ff;
+    line-height: 1.5;
+}
+
+.info-content.Login {
+    transform: translateX(0);
+}
+
+.info-content.Register {
+    right: 0;
+    transform: translateX(0);
+}
+
+.form-box.Login {
+    left: 0;
+}
+
+.form-box.Register {
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+}
+
+.overlay-container {
+    left: 50%;
+}
+
+.container.active .form-box.Login {
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: -1;
+}
+
+.container.active .form-box.Register {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+}
+
+.container.active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.container.active .overlay {
+    transform: translateX(50%);
+}
+
+.animation {
+    transition: 0.6s;
+    opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .overlay-container {
+        display: none;
+    }
+
+    .form-box {
+        width: 100%;
+        padding: 0 30px;
+    }
+
+    .form-box.Login {
+        left: 0;
+        opacity: 1;
+        z-index: 5;
+    }
+
+    .form-box.Register {
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .container.active .form-box.Login {
+        display: none;
+    }
+
+    .container.active .form-box.Register {
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 5;
+    }
+}

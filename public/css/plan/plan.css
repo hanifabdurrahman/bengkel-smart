@@ -1,0 +1,207 @@
+.plan-card {
+    border-radius: 1.5rem;
+    border: 1px solid #eee;
+    padding: 2.5rem 2rem;
+    background: #fff;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    display: flex;
+    flex-direction: column;
+    /* Hapus align-items: center agar kita bisa kontrol per elemen */
+    height: 100%;
+    position: relative;
+}
+
+/* Paksa Header, Harga, dan Deskripsi tetap di tengah */
+.plan-card h4,
+.plan-card .plan-price,
+.plan-card .plan-description,
+.plan-card .mb-2 {
+    text-align: center;
+    align-self: center;
+}
+
+.plan-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: #0d6efd;
+}
+
+.plan-popular {
+    border: 2px solid #0d6efd;
+    background: #f8fbff;
+}
+
+.plan-price {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #0d6efd;
+    margin: 1rem 0;
+}
+
+.plan-price small {
+    font-size: 1rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.plan-badge {
+    background: linear-gradient(90deg, #0d6efd, #3b82f6);
+    color: #fff;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    padding: 0.35rem 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.btn-select {
+    border-radius: 50px;
+    padding: 0.8rem 1.5rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    /* Tambahan agar link tidak bergaris bawah */
+    display: block;
+    /* Agar link full width seperti tombol */
+}
+
+.btn-select:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+    color: white;
+}
+
+.plan-features-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    /* Ini memastikan container fitur memenuhi lebar card */
+    width: 100%;
+}
+
+.plan-features {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    padding-left: 0;
+    list-style: none;
+    /* Menyeimbangkan posisi list agar tidak terlalu menempel ke pinggir */
+    align-self: flex-start;
+    width: 100%;
+}
+
+.plan-features li {
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    display: flex;
+    /* Ikon di kiri, teks mengikuti di sampingnya */
+    align-items: flex-start;
+    text-align: left;
+    /* Teks rata kiri */
+    gap: 12px;
+}
+
+.plan-features li i {
+    color: #198754;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Deskripsi dengan tinggi minimal agar judul/harga sejajar */
+.plan-description {
+    min-height: 3rem;
+    margin-bottom: 1rem;
+}
+
+.plan-price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0d6efd;
+    margin: 0.5rem 0 1.5rem 0;
+}
+
+/* DARK MODE – PLAN CARD */
+
+[data-theme="dark"] .plans-header p {
+    color: #f1f5f9;
+}
+
+[data-theme="dark"] .plan-card {
+    background: #1e293b;
+    border: 1px solid #395c8e;
+    color: #f1f5f9;
+
+    /* subtle glow */
+    box-shadow: 0 0 0 1px rgba(57, 92, 142, 0.35),
+        0 0 18px rgba(57, 92, 142, 0.25);
+}
+
+/* Hover effect dark */
+[data-theme="dark"] .plan-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.6),
+        0 0 28px rgba(59, 130, 246, 0.45);
+    border-color: #3b82f6;
+}
+
+/* Popular plan */
+[data-theme="dark"] .plan-card.plan-popular {
+    background: linear-gradient(180deg, #1e293b, #0f172a);
+    border: 2px solid #3b82f6;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.7),
+        0 0 35px rgba(59, 130, 246, 0.45);
+}
+
+/* Title override (fix text-dark) */
+[data-theme="dark"] .plan-card h4 {
+    color: #f8fafc !important;
+}
+
+/* Price */
+[data-theme="dark"] .plan-card .plan-price {
+    color: #60a5fa;
+}
+
+/* Description & muted text */
+[data-theme="dark"] .plan-card .text-muted,
+[data-theme="dark"] .plan-card small {
+    color: #94a3b8 !important;
+}
+
+/* Feature list */
+[data-theme="dark"] .plan-card .plan-features li {
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] .plan-card .plan-features li i {
+    color: #22c55e;
+}
+
+/* Divider */
+[data-theme="dark"] .plan-card hr {
+    border-color: rgba(148, 163, 184, 0.2);
+}
+
+/* Button adjustments */
+[data-theme="dark"] .plan-card .btn-primary {
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    border: none;
+}
+
+[data-theme="dark"] .plan-card .btn-outline-primary {
+    color: #93c5fd;
+    border-color: #3b82f6;
+}
+
+[data-theme="dark"] .plan-card .btn-outline-primary:hover {
+    background: #2563eb;
+    color: #fff;
+}

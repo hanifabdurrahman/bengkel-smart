@@ -1,0 +1,88 @@
+[data-bs-theme="dark"] h2,
+[data-bs-theme="dark"] h3,
+[data-bs-theme="dark"] h5,
+[data-bs-theme="dark"] h6,
+[data-bs-theme="dark"] p,
+[data-bs-theme="dark"] small,
+[data-bs-theme="dark"] .phone,
+[data-bs-theme="dark"] .address {
+    color: #e5e7eb !important;
+}
+
+/* Avatar inisial nama */
+.avatar-initial {
+    width: 35px;
+    height: 35px;
+    background-color: #e0e7ff;
+    color: #4f46e5;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.85rem;
+}
+
+/* Tabel yang lebih lega */
+.table td {
+    vertical-align: middle;
+    padding: 1rem 0.75rem;
+}
+
+/* Badge kendaraan */
+.badge-car {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    font-weight: 600;
+    padding: 0.35em 0.65em;
+    border-radius: 6px;
+}
+
+/* DARK MODE OVERRIDES */
+[data-bs-theme="dark"] .bg-white {
+    background-color: #1f2937 !important;
+    color: #f3f4f6;
+}
+
+[data-bs-theme="dark"] .table {
+    color: #e5e7eb;
+    border-color: #374151;
+}
+
+[data-bs-theme="dark"] .table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-bs-theme="dark"] .avatar-initial {
+    background-color: #312e81;
+    color: #a5b4fc;
+}
+
+[data-bs-theme="dark"] .badge-car {
+    background-color: #374151;
+    color: #e5e7eb;
+    border-color: #4b5563;
+}
+
+[data-bs-theme="dark"] .form-control {
+    background-color: #111827;
+    border-color: #4b5563;
+    color: white;
+}
+
+[data-bs-theme="dark"] .form-control::placeholder {
+    color: #9ca3af;
+}
+
+/* Pagination Dark Mode Fix */
+[data-bs-theme="dark"] .page-link {
+    background-color: #1f2937;
+    border-color: #374151;
+    color: #e5e7eb;
+}
+
+[data-bs-theme="dark"] .page-item.active .page-link {
+    background-color: #4f46e5;
+    border-color: #4f46e5;
+}

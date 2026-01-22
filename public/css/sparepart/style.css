@@ -1,0 +1,113 @@
+/* --- 1. MODERN VARIABLES --- */
+:root {
+    --input-bg-light: #f3f4f6;
+    --input-bg-focus: #ffffff;
+    --input-border-focus: #4f46e5;
+    --input-shadow-focus: rgba(79, 70, 229, 0.15);
+}
+
+/* --- 2. SEARCH INPUT STYLING --- */
+.modern-search-wrapper {
+    background-color: var(--input-bg-light);
+    border: 1px solid transparent;
+    border-radius: 50rem;
+    transition: all 0.2s ease;
+    padding: 0.35rem 1rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+}
+
+.modern-search-wrapper:focus-within {
+    background-color: var(--input-bg-focus);
+    border-color: var(--input-border-focus);
+    box-shadow: 0 0 0 4px var(--input-shadow-focus);
+}
+
+.modern-search-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 0.95rem;
+    color: #374151;
+    margin-left: 0.5rem;
+}
+
+/* --- 3. CARD & LAYOUT --- */
+.card-modern {
+    border: none;
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 2px 4px -1px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+    background: #fff;
+}
+
+/* --- 4. LOADING OVERLAY (GLASS EFFECT) --- */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+    transition: opacity 0.3s ease;
+}
+
+/* --- 5. DARK MODE ADAPTATION --- */
+[data-bs-theme="dark"] .card-modern {
+    background: #1f2937;
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-bs-theme="dark"] .modern-search-wrapper {
+    background-color: #374151;
+}
+
+[data-bs-theme="dark"] .modern-search-wrapper:focus-within {
+    background-color: #1f2937;
+    border-color: #6366f1;
+}
+
+[data-bs-theme="dark"] .modern-search-input {
+    color: #f3f4f6;
+}
+
+[data-bs-theme="dark"] .loading-overlay {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* --- 6. UTILITIES --- */
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal tweaks */
+.modal-backdrop {
+    z-index: 1040;
+}
+
+.modal {
+    z-index: 1050;
+}
