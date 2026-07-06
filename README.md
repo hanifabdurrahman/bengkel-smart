@@ -7,13 +7,13 @@
 [![Midtrans](https://img.shields.io/badge/Payment-Midtrans-blue?style=for-the-badge)](https://midtrans.com)
 [![Gemini AI](https://img.shields.io/badge/AI-Google_Gemini-8E75C2?style=for-the-badge&logo=google-gemini&logoColor=white)](https://deepmind.google/technologies/gemini)
 
-**BengkelSmart** is a modern, cloud-based Software-as-a-Service (SaaS) platform designed for automotive workshop/repair shop management. It streamlines core business operations, including customer relationships, real-time spareparts inventory tracking, repair service workflows, invoicing, subscription-based billing via Midtrans, financial reporting, and an integrated **Google Gemini AI Assistant** that provides smart insights based on live workshop metrics.
+**BengkelSmart** adalah platform SaaS (Software-as-a-Service) modern berbasis cloud yang dirancang untuk manajemen bengkel otomotif. Platform ini menyederhanakan operasi bisnis inti, meliputi hubungan pelanggan, pelacakan stok suku cadang secara real-time, alur kerja servis perbaikan, faktur, penagihan berbasis langganan melalui Midtrans, laporan keuangan, dan **Asisten AI Google Gemini** terintegrasi yang memberikan wawasan cerdas berdasarkan metrik bengkel secara langsung.
 
 ---
 
-## 🗺️ System Flow & Architecture
+## 🗺️ Alur Sistem & Arsitektur
 
-The following diagram illustrates the workflow of the BengkelSmart platform:
+Diagram berikut mengilustrasikan alur kerja platform BengkelSmart:
 
 ```mermaid
 graph TD
@@ -31,73 +31,81 @@ graph TD
 
 ---
 
-## ✨ Core Features
+## ✨ Fitur Unggulan
 
-*   **💳 SaaS Billing & Subscriptions**:
-    *   Tiered subscription plans (Free and Premium).
-    *   Secure checkout integration via **Midtrans Snap API**.
-    *   Automated subscription state management utilizing Midtrans Webhook/IPN callbacks.
-*   **🤖 Google Gemini AI Chatbot**:
-    *   Context-aware AI assistant tailored specifically to your workshop.
-    *   Automatically pulls live metrics (e.g. today's revenue, low stock spareparts, pending repairs) to answer analytical and advisory questions dynamically.
-*   **📦 Inventory & Spareparts Management**:
-    *   Track inventory, add stock manually, and receive automated visual alerts when items fall below safety thresholds (low stock warning).
-*   **🔧 Repair Service Workflow**:
-    *   Manage active repairs with live status updates (Pending, Process, Completed, etc.).
-    *   Dynamically associate services with spareparts used and calculate total labor/jasa fees.
-*   **🧾 Transactions & Automated Invoicing**:
-    *   Generate print-friendly invoices automatically upon service completion.
-    *   Process payments and record transactions seamlessly.
-*   **📊 Financial & Export Reports**:
-    *   Visual dashboard charts tracking monthly service traffic and revenue.
-    *   Export comprehensive revenue and transaction histories into Excel (`.xlsx`) format.
-*   **🔑 System Admin Panel**:
-    *   Robust administrative backend powered by **Filament v4** located at `/admin`.
-    *   Allows super admins to manage Plan options, active subscriptions, and registered workshops.
-
----
-
-## 🛠️ Tech Stack
-
-*   **Backend**: Laravel 12.x (PHP 8.2+)
-*   **Frontend**: Tailwind CSS, Blade Templates, JavaScript (Vite)
-*   **Administration Panel**: Filament v4 (Filament PHP)
-*   **Payment Gateway**: Midtrans PHP SDK (Snap & API integration)
-*   **AI Integration**: Google Gemini API
-*   **Excel Export**: Maatwebsite Laravel Excel v3
-*   **Database & Cache**: MySQL/SQLite, Laravel Cache wrapper
+- **💳 Tagihan SaaS & Langganan**:
+    - Paket langganan berjenjang (Gratis dan Premium).
+    - Integrasi checkout aman melalui **Midtrans Snap API**.
+    - Pengelolaan status langganan otomatis menggunakan callback Webhook/IPN Midtrans.
+- **🤖 Chatbot AI Google Gemini**:
+    - Asisten AI yang sadar konteks, disesuaikan khusus untuk bengkel Anda.
+    - Secara otomatis mengambil metrik langsung (mis. pendapatan hari ini, stok suku cadang menipis, perbaikan tertunda) untuk menjawab pertanyaan analitis dan konsultatif secara dinamis.
+- **📦 Manajemen Inventaris & Suku Cadang**:
+    - Lacak inventaris, tambah stok secara manual, dan terima peringatan visual otomatis saat stok di bawah batas aman (peringatan stok menipis).
+- **🔧 Alur Kerja Servis Perbaikan**:
+    - Kelola perbaikan aktif dengan pembaruan status langsung (Pending, Proses, Selesai, dll).
+    - Hubungkan servis dengan suku cadang yang digunakan secara dinamis dan hitung total biaya jasa.
+- **🧾 Transaksi & Faktur Otomatis**:
+    - Menghasilkan faktur siap cetak secara otomatis saat servis selesai.
+    - Proses pembayaran dan catat transaksi dengan mulus.
+- **📊 Laporan Keuangan & Ekspor**:
+    - Grafik dashboard visual yang melacak tren servis bulanan dan pendapatan.
+    - Ekspor rivayat pendapatan dan transaksi ke format Excel (`.xlsx`).
+- **🔑 Panel Admin Sistem**:
+    - Backend admin berbasis **Filament v4** di `/admin`.
+    - Memungkinkan super admin mengelola opsi Paket, langganan aktif, dan bengkel terdaftar.
 
 ---
 
-## 🚀 Installation & Local Setup
+## 🛠️ Tumpukan Teknologi
 
-Follow these steps to set up BengkelSmart on your local machine:
+- **Backend**: Laravel 12.x (PHP 8.2+)
+- **Frontend**: Tailwind CSS, Blade Templates, JavaScript (Vite)
+- **Panel Administrasi**: Filament v4 (Filament PHP)
+- **Gerbang Pembayaran**: Midtrans PHP SDK (Integrasi Snap & API)
+- **Integrasi AI**: Google Gemini API
+- **Ekspor Excel**: Maatwebsite Laravel Excel v3
+- **Database & Cache**: MySQL/SQLite, Laravel Cache wrapper
 
-### 1. Prerequisites
-Ensure you have the following installed:
-*   PHP 8.2 or higher
-*   Composer
-*   Node.js & NPM
-*   A local database engine (e.g. MySQL, SQLite)
+---
 
-### 2. Clone the Repository
+## 🚀 Instalasi & Pengaturan Lokal
+
+Ikuti langkah-langkah berikut untuk menyiapkan BengkelSmart di mesin lokal Anda:
+
+### 1. Prasyarat
+
+Pastikan Anda telah menginstal berikut ini:
+
+- PHP 8.2 atau lebih tinggi
+- Composer
+- Node.js & NPM
+- Mesin database lokal (mis. MySQL, SQLite)
+
+### 2. Kloning Repositori
+
 ```bash
 git clone https://github.com/your-username/BengkelSmart.git
 cd BengkelSmart
 ```
 
-### 3. Install Dependencies
+### 3. Instal Dependensi
+
 ```bash
 composer install
 npm install
 ```
 
-### 4. Configure Environment File
-Copy the sample environment file to `.env`:
+### 4. Konfigurasi Berkas Environment
+
+Salin file environment contoh ke `.env`:
+
 ```bash
 cp .env.example .env
 ```
-Open `.env` and fill in your database credentials:
+
+Buka `.env` dan isi kredensial database Anda:
+
 ```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -106,9 +114,11 @@ DB_DATABASE=bengkel_smart
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-Add your **Midtrans** and **Google Gemini** API credentials:
+
+Tambahkan kredensial API **Midtrans** dan **Google Gemini** Anda:
+
 ```env
-# Midtrans Credentials
+# Kredensial Midtrans
 MIDTRANS_SERVER_KEY=your_midtrans_server_key
 MIDTRANS_CLIENT_KEY=your_midtrans_client_key
 MIDTRANS_IS_PRODUCTION=false
@@ -117,38 +127,47 @@ MIDTRANS_IS_PRODUCTION=false
 GEMINI_API_KEY=your_google_gemini_api_key
 ```
 
-### 5. Generate Application Key
+### 5. Generate Kunci Aplikasi
+
 ```bash
 php artisan key:generate
 ```
 
-### 6. Run Database Migrations & Seeds
-Run the migrations along with the database seeder to create the default super admin account:
+### 6. Jalankan Migrasi & Seeder Database
+
+Jalankan migrasi beserta seeder database untuk membuat akun super admin bawaan:
+
 ```bash
 php artisan migrate --seed
 ```
 
-### 7. Build Assets & Start Servers
-Start the Laravel development server:
+### 7. Build Aset & Mulai Server
+
+Jalankan server pengembangan Laravel:
+
 ```bash
 php artisan serve
 ```
-In another terminal tab, run Vite to compile frontend assets:
+
+Di tab terminal lain, jalankan Vite untuk mengompilasi aset frontend:
+
 ```bash
 npm run dev
 ```
 
 ---
 
-## 🔑 Default Credentials
+## 🔑 Kredensial Bawaan
 
-### System Admin Panel
-You can access the System Admin Panel at `http://localhost:8000/admin`.
-*   **Email**: `admin@gmail.com`
-*   **Password**: `adminsistem123`
+### Panel Admin Sistem
+
+Anda dapat mengakses Panel Admin Sistem di `http://localhost:8000/admin`.
+
+- **Email**: `admin@gmail.com`
+- **Password**: `adminsistem123`
 
 ---
 
 ## 📄 License
 
-The BengkelSmart software is open-sourced software licensed under the [MIT license](LICENSE).
+Perangkat lunak BengkelSmart adalah perangkat lunak sumber terbuka yang dilisensikan di bawah [lisensi MIT](LICENSE).
