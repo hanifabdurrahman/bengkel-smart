@@ -1,59 +1,154 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# BengkelSmart 🛠️
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![Filament](https://img.shields.io/badge/Filament-4.x-FDB347?style=for-the-badge&logo=laravel&logoColor=black)](https://filamentphp.com)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Midtrans](https://img.shields.io/badge/Payment-Midtrans-blue?style=for-the-badge)](https://midtrans.com)
+[![Gemini AI](https://img.shields.io/badge/AI-Google_Gemini-8E75C2?style=for-the-badge&logo=google-gemini&logoColor=white)](https://deepmind.google/technologies/gemini)
 
-## About Laravel
+**BengkelSmart** is a modern, cloud-based Software-as-a-Service (SaaS) platform designed for automotive workshop/repair shop management. It streamlines core business operations, including customer relationships, real-time spareparts inventory tracking, repair service workflows, invoicing, subscription-based billing via Midtrans, financial reporting, and an integrated **Google Gemini AI Assistant** that provides smart insights based on live workshop metrics.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🗺️ System Flow & Architecture
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The following diagram illustrates the workflow of the BengkelSmart platform:
 
-## Learning Laravel
+```mermaid
+graph TD
+    A[Public Visitor] -->|1. Register & Login| B[Workshop Dashboard]
+    B -->|2. Select Plan| C[Midtrans Payment Gateway]
+    C -->|3. Callback IPN| D[Active Subscription]
+    D -->|4. Unlocks| E[Dashboard & Features]
+    E -->|Manage| F[Customers]
+    E -->|Manage| G[Spareparts Inventory]
+    E -->|Manage| H[Repair Services]
+    E -->|Generate| I[Transactions & Invoices]
+    E -->|Export| J[Excel Financial Reports]
+    E -->|Consult| K[Google Gemini AI Chatbot]
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ✨ Core Features
 
-## Laravel Sponsors
+*   **💳 SaaS Billing & Subscriptions**:
+    *   Tiered subscription plans (Free and Premium).
+    *   Secure checkout integration via **Midtrans Snap API**.
+    *   Automated subscription state management utilizing Midtrans Webhook/IPN callbacks.
+*   **🤖 Google Gemini AI Chatbot**:
+    *   Context-aware AI assistant tailored specifically to your workshop.
+    *   Automatically pulls live metrics (e.g. today's revenue, low stock spareparts, pending repairs) to answer analytical and advisory questions dynamically.
+*   **📦 Inventory & Spareparts Management**:
+    *   Track inventory, add stock manually, and receive automated visual alerts when items fall below safety thresholds (low stock warning).
+*   **🔧 Repair Service Workflow**:
+    *   Manage active repairs with live status updates (Pending, Process, Completed, etc.).
+    *   Dynamically associate services with spareparts used and calculate total labor/jasa fees.
+*   **🧾 Transactions & Automated Invoicing**:
+    *   Generate print-friendly invoices automatically upon service completion.
+    *   Process payments and record transactions seamlessly.
+*   **📊 Financial & Export Reports**:
+    *   Visual dashboard charts tracking monthly service traffic and revenue.
+    *   Export comprehensive revenue and transaction histories into Excel (`.xlsx`) format.
+*   **🔑 System Admin Panel**:
+    *   Robust administrative backend powered by **Filament v4** located at `/admin`.
+    *   Allows super admins to manage Plan options, active subscriptions, and registered workshops.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🛠️ Tech Stack
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+*   **Backend**: Laravel 12.x (PHP 8.2+)
+*   **Frontend**: Tailwind CSS, Blade Templates, JavaScript (Vite)
+*   **Administration Panel**: Filament v4 (Filament PHP)
+*   **Payment Gateway**: Midtrans PHP SDK (Snap & API integration)
+*   **AI Integration**: Google Gemini API
+*   **Excel Export**: Maatwebsite Laravel Excel v3
+*   **Database & Cache**: MySQL/SQLite, Laravel Cache wrapper
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🚀 Installation & Local Setup
 
-## Code of Conduct
+Follow these steps to set up BengkelSmart on your local machine:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 1. Prerequisites
+Ensure you have the following installed:
+*   PHP 8.2 or higher
+*   Composer
+*   Node.js & NPM
+*   A local database engine (e.g. MySQL, SQLite)
 
-## Security Vulnerabilities
+### 2. Clone the Repository
+```bash
+git clone https://github.com/your-username/BengkelSmart.git
+cd BengkelSmart
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 3. Install Dependencies
+```bash
+composer install
+npm install
+```
 
-## License
+### 4. Configure Environment File
+Copy the sample environment file to `.env`:
+```bash
+cp .env.example .env
+```
+Open `.env` and fill in your database credentials:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=bengkel_smart
+DB_USERNAME=root
+DB_PASSWORD=
+```
+Add your **Midtrans** and **Google Gemini** API credentials:
+```env
+# Midtrans Credentials
+MIDTRANS_SERVER_KEY=your_midtrans_server_key
+MIDTRANS_CLIENT_KEY=your_midtrans_client_key
+MIDTRANS_IS_PRODUCTION=false
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Google Gemini AI
+GEMINI_API_KEY=your_google_gemini_api_key
+```
+
+### 5. Generate Application Key
+```bash
+php artisan key:generate
+```
+
+### 6. Run Database Migrations & Seeds
+Run the migrations along with the database seeder to create the default super admin account:
+```bash
+php artisan migrate --seed
+```
+
+### 7. Build Assets & Start Servers
+Start the Laravel development server:
+```bash
+php artisan serve
+```
+In another terminal tab, run Vite to compile frontend assets:
+```bash
+npm run dev
+```
+
+---
+
+## 🔑 Default Credentials
+
+### System Admin Panel
+You can access the System Admin Panel at `http://localhost:8000/admin`.
+*   **Email**: `admin@gmail.com`
+*   **Password**: `adminsistem123`
+
+---
+
+## 📄 License
+
+The BengkelSmart software is open-sourced software licensed under the [MIT license](LICENSE).

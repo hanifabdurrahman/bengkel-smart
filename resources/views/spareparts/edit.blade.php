@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-10">
 
-            <form action="{{ route('spareparts.edit', $sparepart->sparepart_id) }}" method="POST">
+            <form action="{{ route('spareparts.update', $sparepart->sparepart_id) }}" method="POST">
                 @csrf
                 @method('PUT')
 

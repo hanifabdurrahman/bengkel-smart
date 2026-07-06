@@ -85,7 +85,7 @@
                                     <textarea class="form-control @error('address') is-invalid @enderror" id="address" name="address" rows="2"
                                         placeholder="Alamat domisili pelanggan">{{ old('address', $customer->address) }}</textarea>
                                     @error('address')
-                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        <div class="invalid-feedback">{{ $message }}></div>
                                     @enderror
                                 </div>
                             </div>
@@ -139,8 +139,6 @@
 
                     {{-- Footer Tombol --}}
                     <div class="card-footer bg-light p-4 border-top text-end">
-                        {{-- Button Reset di form Edit biasanya opsional, tapi jika ingin kembali ke data awal DB --}}
-                        {{-- <button type="reset" class="btn btn-light border fw-semibold me-2 px-4">Reset</button> --}}
 
                         <button type="submit" class="btn btn-primary rounded-pill fw-bold px-5 shadow-sm">
                             <i class="bi bi-save me-1"></i> Simpan Perubahan
